@@ -29,8 +29,7 @@ for i in range(m):
     row = list(map(float, input(f"Constraint {i+1}: ").split()))
     A.append(row[:-1])  
     b.append(row[-1])    
-
-
+    
 tableau = []
 
 # Add constraints + slack variables
@@ -78,7 +77,6 @@ while True:
                 tableau[i][j] -= factor * tableau[pivot_row][j]
 
     iteration += 1
-
 
 print("\nFinal Optimal Table:")
 print_tableau(tableau, n, m)
