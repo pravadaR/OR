@@ -1,7 +1,6 @@
 import numpy as np 
 import matplotlib.pyplot as plt 
  
- 
 print("Objective Function: Z = c1*x + c2*y") 
  
 c1 = int(input("Enter c1: ")) 
@@ -24,7 +23,6 @@ for a, b, sign, c in constraints:
     plt.plot(x, y) 
   lines.append((a, b, c)) 
  
- 
 lower = np.zeros(len(x)) 
 upper = np.ones(len(x)) * 50 
  
@@ -38,7 +36,6 @@ for a, b, sign, c in constraints:
  
 plt.fill_between(x, lower, upper, where=(upper >= lower), alpha=0.3) 
  
- 
 def feasible(xp, yp): 
    for a, b, sign, c in constraints: 
        val = a*xp + b*yp 
@@ -49,9 +46,7 @@ def feasible(xp, yp):
  
    return True 
  
- 
 corner = [] 
- 
  
 for i in range(len(lines)): 
    a1, b1, c1_ = lines[i] 
@@ -65,7 +60,6 @@ for i in range(len(lines)):
                if feasible(x_int, y_int): 
                    corner.append((x_int, y_int)) 
  
- 
 for a, b, c in lines: 
    if a != 0: 
        x_int = c/a 
@@ -77,12 +71,10 @@ for a, b, c in lines:
        if y_int >= 0 and feasible(0, y_int): 
            corner.append((0, y_int)) 
  
- 
 if len(corner) == 0: 
    print("\nNo feasible solution") 
    plt.show() 
    exit() 
- 
  
 Zmax = None 
 best_points = [] 
@@ -104,7 +96,6 @@ for xp, yp in corner:
    elif Z == Zmax: 
        best_points.append((xp, yp)) 
  
- 
 if len(best_points) == 1: 
    print("\nUnique Optimal Solution") 
    print("Point:", (round(best_points[0][0],2), round(best_points[0][1],2))) 
@@ -116,9 +107,7 @@ else:
    for p in best_points: 
        print((round(p[0],2), round(p[1],2))) 
  
- 
 plt.xlim(0, 20) 
- 
 plt.ylim(0, 15) 
 plt.xlabel("x") 
 plt.ylabel("y") 
