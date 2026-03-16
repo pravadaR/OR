@@ -87,24 +87,24 @@ for xp, yp in corner: #loop through corner points
  
    plt.scatter(xp, yp, color="red") #plot corner point
  
-   plt.text(xp+0.2, yp+0.2, "(" + str(round(xp,1)) + "," + str(round(yp,1)) + ")  #label point
+   plt.text(xp+0.2, yp+0.2, "(" + str(round(xp,1)) + "," + str(round(yp,1)) + ")")  #label point
  
-   if Zmax is None or Z > Zmax: 
+   if Zmax is None or Z > Zmax: #update max
        Zmax = Z 
        best_points = [(xp, yp)] 
    elif Z == Zmax: 
-       best_points.append((xp, yp)) 
+       best_points.append((xp, yp)) #multiple optimal sol
  
 if len(best_points) == 1: 
-   print("\nUnique Optimal Solution") 
-   print("Point:", (round(best_points[0][0],2), round(best_points[0][1],2))) 
-   print("Maximum Z =", round(Zmax,2)) 
+   print("\nUnique Optimal Solution") #unique sol
+   print("Point:", (round(best_points[0][0],2), round(best_points[0][1],2))) #print iptimal point
+   print("Maximum Z =", round(Zmax,2)) #print max z value
 else: 
-   print("\nMultiple Optimal Solutions") 
-   print("Maximum Z =", round(Zmax,2)) 
-   print("Corner Points:") 
-   for p in best_points: 
-       print((round(p[0],2), round(p[1],2))) 
+   print("\nMultiple Optimal Solutions")  #multiple optimal soln
+   print("Maximum Z =", round(Zmax,2))  #print max value
+   print("Corner Points:") #print heading
+   for p in best_points: #loop through all optimal points
+       print((round(p[0],2), round(p[1],2))) #print each optimal point
  
 plt.xlim(0, 20) 
 plt.ylim(0, 15) 
